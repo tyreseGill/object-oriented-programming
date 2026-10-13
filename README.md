@@ -32,10 +32,11 @@ The following is a collection of labs done as part of a course in Object-Oriente
 > Each lab has a folder representing an implementation in Python and (in the near future) C++ respectively.
 
 The links for each lab are listed below:
-- [Lab #1 - Card Game](./apps/01_card_game/)
+- [Lab #1 - Three Card Monte](./apps/01_three_card_monte/)
 - [Lab #2 - Rock, Paper, Scissors](./apps/02_rock_paper_scissors/)
 - [Lab #3 - Hangman](./apps/03_hangman/)
 - [Lab #5 - Task Manager](./apps/05_task_manager/)
+- [Lab #6 - Dice Roll](./apps/06_dice_roll/)
 - [Lab #7 - Cipher](./apps/07_cipher/)
 - [Lab #8 - Pokemon](./apps/08_pokemon/)
 - [Lab #9 - Escape Room](./apps/09_escape_room/)
