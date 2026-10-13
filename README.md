@@ -15,7 +15,7 @@
 
 ## About the Project
 
-The following is a collection of labs done as part of a course in Object-Oriented application development. Programming was intially done using Python and the logic reimplemented in [C++](Cpp-url). You'll see the application of singletons, decorators, factories, and more.
+The following is a collection of labs done as part of a course in Object-Oriented application development. Programming was intially done using Python and the logic reimplemented in [C++](https://isocpp.org/). You'll see the application of singletons, decorators, factories, and more.
 
 ### Built With
 
@@ -30,5 +30,5 @@ The following is a collection of labs done as part of a course in Object-Oriente
 <!-- Programming Languages -->
 [Python-icon]: https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white
 [Python-url]: https://www.python.org/
-[Cpp-icon]: https://img.shields.io/badge/C++-%2300599C.svg?logo=c%2B%2B&logoColor=white
+[Cpp-icon]: https://img.shields.io/badge/C++-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&logoColor=white
 [Cpp-url]: https://isocpp.org/
