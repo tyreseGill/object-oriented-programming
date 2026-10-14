@@ -1,90 +1,142 @@
-import sys
-from pathlib import Path
-
-# Make the repository-level shared package available when running this file directly.
-sys.path.append(str(Path(__file__).resolve().parent.parent.parent.parent))
-
-from shared.check_input import get_int_range, get_yes_no
-
 import random
 
+# Resolve import for check_input.py
+import sys
+from pathlib import Path
+sys.path.append(str(Path(__file__).resolve().parent.parent.parent.parent))
+from shared.check_input import get_int_range, get_yes_no
+
+
+def setup_round(bets_made: int, money_left: int) -> int:
+    """
+    Randomly selects the location of the queen card and prints stats.
+
+    Returns:
+        int: The index of the actual card (1, 2, or 3).
+    """
+    actual_card_index = random.randint(1, 3)
+
+    print('Bets made:', bets_made)
+    print('Money left: $' + str(money_left))
+
+    return actual_card_index
+
+
+def print_card_locations(actual_card_index: int):
+    """
+    Prints the locations of the cards based on the actual card index.
+
+    Args:
+        actual_card_index: The index of the actual card (1, 2, or 3).
+    """
+    print()
+
+    if actual_card_index == 1:
+        print('\t\t+-----+ +-----+ +-----+')
+        print('\t\t|     | |     | |     |')
+        print('\t\t|  Q  | |  K  | |  K  |')
+        print('\t\t|     | |     | |     |')
+        print('\t\t+-----+ +-----+ +-----+')
+    elif actual_card_index == 2:
+        print('\t\t+-----+ +-----+ +-----+')
+        print('\t\t|     | |     | |     |')
+        print('\t\t|  K  | |  Q  | |  K  |')
+        print('\t\t|     | |     | |     |')
+        print('\t\t+-----+ +-----+ +-----+')
+    else:
+        print('\t\t+-----+ +-----+ +-----+')
+        print('\t\t|     | |     | |     |')
+        print('\t\t|  K  | |  K  | |  Q  |')
+        print('\t\t|     | |     | |     |')
+        print('\t\t+-----+ +-----+ +-----+')
+
+    print()
+
+
+def check_guess(guessed_card_index: int, actual_card_index: int, money_bet: int, money_left: int) -> int:
+    """
+    Checks if the guessed card index matches the actual card index and updates the money left accordingly.
+
+    Args:
+        guessed_card_index: The index of the guessed card (1, 2, or 3).
+        actual_card_index: The index of the actual card (1, 2, or 3).
+        money_bet: The amount of money bet.
+        money_left: The amount of money left.
+    
+    Returns:
+        int: The updated amount of money left after checking the guess.
+    """
+    print('Card Chosen:', guessed_card_index, 'vs Queen Card:', actual_card_index)
+
+    print_card_locations(actual_card_index)
+
+    if guessed_card_index == actual_card_index:
+        money_left += money_bet
+        print('\nYou won this round but we will get you next time!')
+        print('You gained', '$' + str(money_bet) + '!')
+
+    else:
+        money_left -= money_bet
+        print("Oops... looks like you chose the wrong card. Maybe next time!")
+        print("You lost", '$' + str(money_bet) + '!')
+        
+    return money_left
+
+
+def check_game_over(money_left: int, play_another_round: bool) -> bool:
+    """
+    Checks if the game is over based on the amount of money left and whether the player wants to play another round.
+
+    Args:
+        money_left: The amount of money left.
+        play_another_round: A boolean indicating if the player wants to play another round.
+    
+    Returns:
+        bool: True if the player wants to play another round or if they have money left, False otherwise.
+    """
+    if money_left == 0:
+        print("\nWhoops... looks like you've run out of money!")
+        return False
+    else:
+        print('\n==============================================================\n')
+        return get_yes_no('Care to play again? (Y/N): ')
+
+
 def main():
-    # Sets up the game assuming the player has $100 and wants to play
-    quit_or_play = True
-    money_left = int(100)
-    bets_made = 0
+    play_another_round: bool = True
+    money_left: int = 100
+    bets_made: int = 0
 
-    # Makes sure that the game runs so long as the user has money and they've indicated that they
-    # still want to play
-    while money_left > 0 and (quit_or_play != False):
+    print('====================== Three card Monte ======================\n')
+    print('\t\tFind the queen to double your bet!')
+    print('\n==============================================================\n')
 
-        # Automatically generates a random number within the range 1-3 and assigns it to the queen card
-        # at the start of every round
-        # A specific message is printed during the first round and another lets the player know how many
-        # bets they've made and the money they have left at the start of each round
-        queen_card = random.randint(1, 3)
-        if bets_made == 0:
-            print('-Three card Monte-')
-            print('Find the queen to double your bet!')
-            print('\nYou have $100.')
-        print('Bets made:',bets_made)
-        print('Money left: $' + str(money_left))
+    print('\nYou have $100.')
 
-        # Asks the user to input an acceptable amount of money for betting and prints out a deck of
-        # cards listed 1-3
-        money_bet = get_int_range('How much do you want to bet? $', 1, money_left)
-        print('\n+-----+ +-----+ +-----+')
-        print('|     | |     | |     |')
-        print('|  1  | |  2  | |  3  |')
-        print('|     | |     | |     |')
-        print('+-----+ +-----+ +-----+')
+    while play_another_round:
+        actual_card_index: int = setup_round(bets_made, money_left)
+        print('\n==============================================================\n')
+        money_bet: int = get_int_range('How much do you want to bet? $', 1, money_left)
+        print('\n==============================================================\n')
 
-        # Asks the user to choose one of the 3 cards, increments the variable associated with the number
-        # of bets, and compares the user's guess to the location of the Queen card
-        card_chosen = get_int_range('\nFind the queen: ', 1, 3)
+        print('\t\t+-----+ +-----+ +-----+')
+        print('\t\t|     | |     | |     |')
+        print('\t\t|  1  | |  2  | |  3  |')
+        print('\t\t|     | |     | |     |')
+        print('\t\t+-----+ +-----+ +-----+')
+
+        print('\n==============================================================\n')
+        guessed_card_index: int = get_int_range('Guess the location of the queen: ', 1, 3)
+        print('\n==============================================================\n')
+
+        money_left = check_guess(guessed_card_index, actual_card_index, money_bet, money_left)
+        play_another_round = check_game_over(money_left, play_another_round)
+        print('\n==============================================================\n')
+
         bets_made += 1
-        print('Card Chosen:', card_chosen, 'vs Queen Card:', queen_card)
 
-        # Checks to see if the user guessed the location of the queen card correctly
-        if int(card_chosen) == int(queen_card):
-            money_left += money_bet
-            print('\nYou won this round but we will get you next time!')
-            print('You gained', '$' + str(money_bet) + '!')
-        elif int(card_chosen) != int(queen_card):
-            money_left -= money_bet
-            print("Oops... looks like you chose the wrong card. Maybe next time!")
-            print("You lost", '$' + str(money_bet) + '!')
+    print('Scram punk!\n')
 
-        # Generates the locations of the Queen and King cards based on the randomly generated number
-        # for the Queen card
-        if queen_card == 1:
-            print('\n+-----+ +-----+ +-----+')
-            print('|     | |     | |     |')
-            print('|  Q  | |  K  | |  K  |')
-            print('|     | |     | |     |')
-            print('+-----+ +-----+ +-----+')
-        elif queen_card == 2:
-            print('\n+-----+ +-----+ +-----+')
-            print('|     | |     | |     |')
-            print('|  K  | |  Q  | |  K  |')
-            print('|     | |     | |     |')
-            print('+-----+ +-----+ +-----+')
-        else:
-            print('\n+-----+ +-----+ +-----+')
-            print('|     | |     | |     |')
-            print('|  K  | |  K  | |  Q  |')
-            print('|     | |     | |     |')
-            print('+-----+ +-----+ +-----+')
 
-        # Checks to make sure that the user still has money to play another game
-        # If not, the user is forcibly exited from the game
-        if money_left == 0:
-            print("Whoops... looks like you've run out of money!")
-            break
-
-        # Asks the user if they want to play again
-        # If the user inputs "no", then the game closes out with the message "Scram punk!"
-        quit_or_play = get_yes_no('\nCare to play again? (Y/N): ')
-    print('\nScram punk!')
-
-main()
+if __name__ == "__main__":
+    main()
