@@ -1,31 +1,31 @@
 #include <iostream>
 #include <random>
 #include <vector>
+#include <string>
 
-int makeBet(int moneyLeft) {
-    // Prompts the user to make a bet and validates it
+int getValidInput(std::string question, int min, int max) {
+    bool invalidInput = true;
+    int inputVariable;
 
-    bool unacceptableBet = true;
-    int moneyBet;
-
-    while (unacceptableBet) {
+    while (invalidInput) {
+        // Prompt for input
         std::cout << "\n==============================================================\n" << std::endl;
-        std::cout << "How much do you want to bet? $" << std::flush;
-        std::cin >> moneyBet;
+        std::cout << question << std::flush;
+        std::cin >> inputVariable;
         std::cout << "\n==============================================================\n" << std::endl;
 
         // Validate the bet
-        if (std::cin.fail() || moneyBet <= 0 || moneyBet > moneyLeft) {
-            std::cout << "Please enter a valid number between 1-" << moneyLeft << "." << std::endl;
+        if (std::cin.fail() || inputVariable <= min || inputVariable > max) {
+            std::cout << "Please enter a valid number between " << min << "-" << max << "." << std::endl;
             std::cin.clear(); // Clear the error flag
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Discard invalid input
             continue; // Prompt the user again
         } else {
-            unacceptableBet = false;
+            invalidInput = false;
         }
     }
 
-    return moneyBet;
+    return inputVariable;
 }
 
 int main() {
@@ -39,7 +39,7 @@ int main() {
     std::cout << "\n==============================================================\n" << std::endl;
     std::cout << "You have $100." << std::endl;
 
-    moneyBet = makeBet(moneyLeft);
+    moneyBet = getValidInput("How much do you want to bet? $", 0, moneyLeft);
 
     return 0;
 }
