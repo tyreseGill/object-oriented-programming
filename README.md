@@ -11,6 +11,9 @@
             <a href="#about-the-project">About the Project</a>
         </li>
         <li>
+            <a href="#c-porting-roadmap">C++ Porting Roadmap</a>
+        </li>
+        <li>
             <a href="#labs">Labs</a>
         </li>
     </ol>
@@ -25,6 +28,23 @@ The following is a collection of labs done as part of a course in Object-Oriente
 #### Programming Languages
 - [![Python][Python-icon]][Python-url]
 - [![C++][Cpp-icon]][Cpp-url]
+
+## C++ Porting Roadmap
+
+| Project | Python | C++ |
+|---------|--------|-----|
+| Three Card Monte  | ✅ | ✅ |
+| Rock, Paper, Scissors | ✅ | 🚧 |
+| Hangman | ✅ | ❌ |
+| Taskmanager | ✅ | ❌ |
+| Dice Roll | ✅ | ❌ |
+| Cipher | ✅ | ❌ |
+| Pokemon | ✅ | ❌ |
+| Escape Room | ✅ | ❌ |
+| Minotaur Maze | ✅ | ❌ |
+| Monster Duel | ✅ | ❌ |
+| Monster Customizer | ✅ | ❌ |
+| Puppy Simulator | ✅ | ❌ |
 
 ## Labs
 
