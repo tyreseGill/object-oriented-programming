@@ -1,3 +1,9 @@
+<div align="left">
+    <a href="./../../README.md">← Go to Home</a>
+</div>
+
+<br>
+
 <div align="center">
     <h1>Three Card Monte</h1>
 </div>
