@@ -75,31 +75,14 @@ void displayStats(int betsMade, int moneyInWallet) {
 }
 
 void displayCardLocations(int guessedCardIndex, int actualCardIndex) {
-    switch (actualCardIndex) {
-        case 1:
-            std::cout << "\t\t+-----+ +-----+ +-----+" << std::endl;
-            std::cout << "\t\t|     | |     | |     |" << std::endl;
-            std::cout << "\t\t|  Q  | |  K  | |  K  |" << std::endl;
-            std::cout << "\t\t|     | |     | |     |" << std::endl;
-            std::cout << "\t\t+-----+ +-----+ +-----+" << std::endl;
-            break;
-        case 2:
-            std::cout << "\t\t+-----+ +-----+ +-----+" << std::endl;
-            std::cout << "\t\t|     | |     | |     |" << std::endl;
-            std::cout << "\t\t|  K  | |  Q  | |  K  |" << std::endl;
-            std::cout << "\t\t|     | |     | |     |" << std::endl;
-            std::cout << "\t\t+-----+ +-----+ +-----+" << std::endl;
-            break;
-        case 3:
-            std::cout << "\t\t+-----+ +-----+ +-----+" << std::endl;
-            std::cout << "\t\t|     | |     | |     |" << std::endl;
-            std::cout << "\t\t|  K  | |  2  | |  K  |" << std::endl;
-            std::cout << "\t\t|     | |     | |     |" << std::endl;
-            std::cout << "\t\t+-----+ +-----+ +-----+" << std::endl;
-            break;
-    }
-
-    std::cout << "\nCard Chosen: " << guessedCardIndex << " vs Queen Card: " << actualCardIndex << std::endl;
+    std::vector<char> cards = {'K', 'K', 'K'};
+    cards[actualCardIndex - 1] = 'Q';  // Assign the location of the Queen card
+    
+    std::cout << "\t\t+-----+ +-----+ +-----+" << std::endl;
+    std::cout << "\t\t|     | |     | |     |" << std::endl;
+    std::cout << "\t\t|  " << cards[0] << "  | |  " << cards[1] << "  | |  " << cards[2] << "  |" << std::endl;
+    std::cout << "\t\t|     | |     | |     |" << std::endl;
+    std::cout << "\t\t+-----+ +-----+ +-----+" << std::endl;
     std::cout << "\n==============================================================\n" << std::endl;
 }
 
