@@ -3,7 +3,7 @@
 #include <vector>
 #include <string>
 
-int getValidInput(std::string question, int min, int max) {
+int getValidInput(const std::string& question, int min, int max) {
     bool isInvalidInput = true;
     int inputVariable;
 
@@ -89,7 +89,6 @@ void displayCardLocations(int guessedCardIndex, int actualCardIndex) {
 int main() {
     bool playAnotherRound = true;
     int moneyInWallet = 100;
-    int moneyBet;
     int betsMade = 0;
 
     std::cout << "====================== Three card Monte ======================\n" << std::endl;
@@ -100,7 +99,7 @@ int main() {
 
         displayStats(betsMade, moneyInWallet);
 
-        moneyBet = getValidInput("How much do you want to bet? $", 0, moneyInWallet);
+        int moneyBet = getValidInput("How much do you want to bet? $", 0, moneyInWallet);
 
         std::cout << "\t\t+-----+ +-----+ +-----+" << std::endl;
         std::cout << "\t\t|     | |     | |     |" << std::endl;
