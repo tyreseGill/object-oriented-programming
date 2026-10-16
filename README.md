@@ -16,6 +16,9 @@
         <li>
             <a href="#labs">Labs</a>
         </li>
+        <li>
+            <a href="#getting-started">Getting Started</a>
+        </li>
     </ol>
 </details>
 
@@ -71,6 +74,24 @@ The links for each lab are listed below:
 - [Lab #11 - Monster Duel](./apps/11_monster_duel/)
 - [Lab #12 - Monster Customizer](./apps/12_monster_customizer/)
 - [Lab #14 - Puppy Simulator](./apps/14_puppy_simulator/)
+
+## Getting Started
+Follow the steps below to set up and run any of the labs in this repository.
+
+### Prerequisites
+Before starting, ensure that at least one of the following softwares are installed:
+ 
+- Python 3.11 or later
+- C++17 or later
+
+### Installation
+
+1. Clone/download a copy of this repository.
+2. Open your terminal and navigate to the project folder.
+3. Run the desired lab.
+> [!NOTE]
+> Python: python ./apps/<lab_folder>/python/main.py
+> C++: Compile the program with g++ *.cpp -o main and run ./main.
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
