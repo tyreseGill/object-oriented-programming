@@ -31,6 +31,8 @@ The following is a collection of labs done as part of a course in Object-Oriente
 
 ## C++ Porting Roadmap
 
+View the full roadmap and task board: [C++ Porting Roadmap](https://github.com/users/tyreseGill/projects/3/views/1).
+
 | Project | Python | C++ |
 |---------|--------|-----|
 | Three Card Monte  | ✅ | ✅ |
@@ -45,6 +47,11 @@ The following is a collection of labs done as part of a course in Object-Oriente
 | Monster Duel | ✅ | ❌ |
 | Monster Customizer | ✅ | ❌ |
 | Puppy Simulator | ✅ | ❌ |
+
+### Legends
+- ✅ = Completed
+- ❌ = Not Started
+- 🚧 = In Progress
 
 ## Labs
 
