@@ -17,3 +17,9 @@ This program simulates the classic Three Card Monte game, where players must ide
 ### C++
 - Location: [cpp/main.cpp](./cpp/main.cpp)
 
+<br>
+<br>
+
+<div align="right">
+    <a href="./../02_rock_paper_scissors/README.md">Lab #2 - Rock, Paper, Scissors →</a>
+</div>
