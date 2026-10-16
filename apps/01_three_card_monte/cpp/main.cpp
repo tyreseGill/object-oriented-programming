@@ -15,7 +15,7 @@ int getValidInput(std::string question, int min, int max) {
         std::cout << "\n==============================================================\n" << std::endl;
 
         // Validate bet
-        if (std::cin.fail() || inputVariable <= min || inputVariable > max) {
+        if (std::cin.fail() || inputVariable < min || inputVariable > max) {
             std::cout << "Please enter a valid number between " << min << "-" << max << "." << std::endl;
             std::cin.clear(); // Clear the error flag
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Discard invalid input
